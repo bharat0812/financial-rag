@@ -562,5 +562,381 @@
         "answer_score": null
       }
     ]
+  },
+  {
+    "experiment_id": "20260427_002036_b2efa84a",
+    "timestamp": "2026-04-27T00:20:36.785847",
+    "config": {
+      "chunk_size": 800,
+      "chunk_overlap": 200,
+      "top_k_retrieval": 20,
+      "top_k_rerank": 5,
+      "use_reranker": true,
+      "embedding_model": "all-MiniLM-L6-v2",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "llm_model": "gemini-2.5-flash",
+      "llm_provider": "gemini",
+      "llm_temperature": 0.1,
+      "notes": "Company-specific questions v2"
+    },
+    "avg_precision": 0.18,
+    "avg_recall": 0.4666666666666667,
+    "avg_latency_ms": 7122.716689109802,
+    "avg_answer_score": null,
+    "num_questions": 10,
+    "detailed_results": [
+      {
+        "question": "What was NVIDIA's total revenue for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 8702.054977416992,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's gross margin percentage in fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 4908.083200454712,
+        "answer_score": null
+      },
+      {
+        "question": "What are NVIDIA's two main reportable business segments?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 5509.513854980469,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's operating income for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 10293.627500534058,
+        "answer_score": null
+      },
+      {
+        "question": "What are the key risk factors mentioned in NVIDIA's 10-K?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 7599.770545959473,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's reportable geographic segments?",
+        "precision": 0.4,
+        "recall": 1.0,
+        "latency_ms": 5372.492551803589,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's total gross margin for 2022?",
+        "precision": 0.2,
+        "recall": 1.0,
+        "latency_ms": 8162.544727325439,
+        "answer_score": null
+      },
+      {
+        "question": "What are the main risk factors disclosed in Apple's 10-K?",
+        "precision": 0.4,
+        "recall": 0.6666666666666666,
+        "latency_ms": 9452.242612838745,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's Services revenue performance in 2022?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 4886.513471603394,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's main product categories?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 6340.323448181152,
+        "answer_score": null
+      }
+    ]
+  },
+  {
+    "experiment_id": "20260427_002142_4930e75a",
+    "timestamp": "2026-04-27T00:21:42.971387",
+    "config": {
+      "chunk_size": 800,
+      "chunk_overlap": 200,
+      "top_k_retrieval": 20,
+      "top_k_rerank": 5,
+      "use_reranker": false,
+      "embedding_model": "all-MiniLM-L6-v2",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "llm_model": "gemini-2.5-flash",
+      "llm_provider": "gemini",
+      "llm_temperature": 0.1,
+      "notes": "Company-specific, no reranker"
+    },
+    "avg_precision": 0.22000000000000003,
+    "avg_recall": 0.55,
+    "avg_latency_ms": 3693.4489727020264,
+    "avg_answer_score": null,
+    "num_questions": 10,
+    "detailed_results": [
+      {
+        "question": "What was NVIDIA's total revenue for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 4372.185945510864,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's gross margin percentage in fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 2147.397994995117,
+        "answer_score": null
+      },
+      {
+        "question": "What are NVIDIA's two main reportable business segments?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 4506.386518478394,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's operating income for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 1632.1537494659424,
+        "answer_score": null
+      },
+      {
+        "question": "What are the key risk factors mentioned in NVIDIA's 10-K?",
+        "precision": 0.2,
+        "recall": 0.3333333333333333,
+        "latency_ms": 11475.15082359314,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's reportable geographic segments?",
+        "precision": 0.4,
+        "recall": 1.0,
+        "latency_ms": 1740.2780055999756,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's total gross margin for 2022?",
+        "precision": 0.2,
+        "recall": 1.0,
+        "latency_ms": 2459.773302078247,
+        "answer_score": null
+      },
+      {
+        "question": "What are the main risk factors disclosed in Apple's 10-K?",
+        "precision": 0.4,
+        "recall": 0.6666666666666666,
+        "latency_ms": 5323.315143585205,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's Services revenue performance in 2022?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 2105.5142879486084,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's main product categories?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 1172.3339557647705,
+        "answer_score": null
+      }
+    ]
+  },
+  {
+    "experiment_id": "20260427_002838_b0deb8a3",
+    "timestamp": "2026-04-27T00:28:38.847864",
+    "config": {
+      "chunk_size": 400,
+      "chunk_overlap": 100,
+      "top_k_retrieval": 20,
+      "top_k_rerank": 5,
+      "use_reranker": false,
+      "embedding_model": "all-MiniLM-L6-v2",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "llm_model": "gemini-2.5-flash",
+      "llm_provider": "gemini",
+      "llm_temperature": 0.1,
+      "notes": "Company-specific, small chunks (400)"
+    },
+    "avg_precision": 0.21999999999999997,
+    "avg_recall": 0.5666666666666667,
+    "avg_latency_ms": 4364.313840866089,
+    "avg_answer_score": null,
+    "num_questions": 10,
+    "detailed_results": [
+      {
+        "question": "What was NVIDIA's total revenue for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 4296.976804733276,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's gross margin percentage in fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 1683.6583614349365,
+        "answer_score": null
+      },
+      {
+        "question": "What are NVIDIA's two main reportable business segments?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 1916.3846969604492,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's operating income for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 2858.7570190429688,
+        "answer_score": null
+      },
+      {
+        "question": "What are the key risk factors mentioned in NVIDIA's 10-K?",
+        "precision": 0.2,
+        "recall": 0.3333333333333333,
+        "latency_ms": 11904.999017715454,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's reportable geographic segments?",
+        "precision": 0.4,
+        "recall": 1.0,
+        "latency_ms": 1780.8473110198975,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's total gross margin for 2022?",
+        "precision": 0.2,
+        "recall": 1.0,
+        "latency_ms": 2184.1185092926025,
+        "answer_score": null
+      },
+      {
+        "question": "What are the main risk factors disclosed in Apple's 10-K?",
+        "precision": 0.2,
+        "recall": 0.3333333333333333,
+        "latency_ms": 13375.978946685791,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's Services revenue performance in 2022?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 2152.8143882751465,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's main product categories?",
+        "precision": 0.4,
+        "recall": 1.0,
+        "latency_ms": 1488.6033535003662,
+        "answer_score": null
+      }
+    ]
+  },
+  {
+    "experiment_id": "20260427_003015_1cd6fe41",
+    "timestamp": "2026-04-27T00:30:15.997422",
+    "config": {
+      "chunk_size": 1200,
+      "chunk_overlap": 300,
+      "top_k_retrieval": 20,
+      "top_k_rerank": 5,
+      "use_reranker": false,
+      "embedding_model": "all-MiniLM-L6-v2",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "llm_model": "gemini-2.5-flash",
+      "llm_provider": "gemini",
+      "llm_temperature": 0.1,
+      "notes": "Company-specific, large chunks (1200)"
+    },
+    "avg_precision": 0.18,
+    "avg_recall": 0.4666666666666667,
+    "avg_latency_ms": 4197.87495136261,
+    "avg_answer_score": null,
+    "num_questions": 10,
+    "detailed_results": [
+      {
+        "question": "What was NVIDIA's total revenue for fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 6284.789800643921,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's gross margin percentage in fiscal year 2024?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 1581.373691558838,
+        "answer_score": null
+      },
+      {
+        "question": "What are NVIDIA's two main reportable business segments?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 11667.362689971924,
+        "answer_score": null
+      },
+      {
+        "question": "What was NVIDIA's operating income for fiscal year 2024?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 1002.1219253540039,
+        "answer_score": null
+      },
+      {
+        "question": "What are the key risk factors mentioned in NVIDIA's 10-K?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 7664.283752441406,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's reportable geographic segments?",
+        "precision": 0.4,
+        "recall": 1.0,
+        "latency_ms": 1705.2035331726074,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's total gross margin for 2022?",
+        "precision": 0.2,
+        "recall": 1.0,
+        "latency_ms": 2742.1278953552246,
+        "answer_score": null
+      },
+      {
+        "question": "What are the main risk factors disclosed in Apple's 10-K?",
+        "precision": 0.4,
+        "recall": 0.6666666666666666,
+        "latency_ms": 5289.946556091309,
+        "answer_score": null
+      },
+      {
+        "question": "What was Apple's Services revenue performance in 2022?",
+        "precision": 0.0,
+        "recall": 0.0,
+        "latency_ms": 2259.0627670288086,
+        "answer_score": null
+      },
+      {
+        "question": "What are Apple's main product categories?",
+        "precision": 0.2,
+        "recall": 0.5,
+        "latency_ms": 1782.4769020080566,
+        "answer_score": null
+      }
+    ]
   }
 ]
