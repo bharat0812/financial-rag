@@ -25,7 +25,7 @@ RERANKER_MODEL = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-
 
 # LLM settings
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-LLM_MODEL = os.getenv("LLM_MODEL", "gemini-1.5-flash")
+LLM_MODEL = os.getenv("LLM_MODEL", "gemini-2.0-flash")
 
 # ChromaDB collection name
 COLLECTION_NAME = "financial_documents"

@@ -63,7 +63,7 @@ class LLM:
         self,
         query: str,
         context_docs: List[Dict[str, Any]],
-        max_tokens: int = 1024,
+        max_tokens: int = 4096,
     ) -> Dict[str, Any]:
         """
         Generate an answer based on query and context.
@@ -92,6 +92,7 @@ class LLM:
             sources.append({
                 "source": source,
                 "pages": pages,
+                "chunk_index": doc.get("metadata", {}).get("chunk_index", 0),
                 "text_preview": doc["text"][:200] + "..." if len(doc["text"]) > 200 else doc["text"],
             })
         
@@ -135,6 +136,7 @@ class MockLLM:
             sources.append({
                 "source": doc.get("metadata", {}).get("source", "Unknown"),
                 "pages": doc.get("metadata", {}).get("pages", []),
+                "chunk_index": doc.get("metadata", {}).get("chunk_index", 0),
                 "text_preview": doc["text"][:200] + "...",
             })
         

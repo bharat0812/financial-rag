@@ -1,0 +1,72 @@
+[
+  {
+    "question": "What was the total revenue for the fiscal year?",
+    "precision": 0.2,
+    "recall": 0.5,
+    "latency_ms": 14012.471199035645,
+    "answer_score": null
+  },
+  {
+    "question": "What are the main business segments or product lines?",
+    "precision": 0.4,
+    "recall": 1.0,
+    "latency_ms": 6197.649002075195,
+    "answer_score": null
+  },
+  {
+    "question": "What are the key risk factors mentioned in the document?",
+    "precision": 0.4,
+    "recall": 0.6666666666666666,
+    "latency_ms": 14569.99397277832,
+    "answer_score": null
+  },
+  {
+    "question": "What was the gross profit or gross margin?",
+    "precision": 0.6,
+    "recall": 1.0,
+    "latency_ms": 8981.550216674805,
+    "answer_score": null
+  },
+  {
+    "question": "What is the company's growth strategy for the future?",
+    "precision": 0.0,
+    "recall": 0.0,
+    "latency_ms": 7519.243478775024,
+    "answer_score": null
+  },
+  {
+    "question": "What was the research and development expense?",
+    "precision": 0.0,
+    "recall": 0.0,
+    "latency_ms": 7077.456474304199,
+    "answer_score": null
+  },
+  {
+    "question": "What geographic regions does the company operate in?",
+    "precision": 0.4,
+    "recall": 1.0,
+    "latency_ms": 8444.284439086914,
+    "answer_score": null
+  },
+  {
+    "question": "What was the year-over-year revenue growth percentage?",
+    "precision": 0.2,
+    "recall": 1.0,
+    "latency_ms": 6214.068174362183,
+    "answer_score": null
+  },
+  {
+    "question": "Who are the main customers or customer segments?",
+    "precision": 0.4,
+    "recall": 1.0,
+    "latency_ms": 6896.32511138916,
+    "answer_score": null
+  },
+  {
+    "question": "What was the operating income or operating margin?",
+    "precision": 0.2,
+    "recall": 0.5,
+    "latency_ms": 9249.155521392822,
+    "answer_score": null
+  }
+]

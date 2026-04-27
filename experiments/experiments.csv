@@ -1,0 +1,7 @@
+experiment_id,timestamp,chunk_size,chunk_overlap,top_k_retrieval,top_k_rerank,use_reranker,embedding_model,reranker_model,llm_model,llm_provider,avg_precision,avg_recall,avg_latency_ms,avg_answer_score,num_questions,notes
+20260426_232728_118be8ea,2026-04-26T23:27:28.192667,800,200,20,5,True,all-MiniLM-L6-v2,cross-encoder/ms-marco-MiniLM-L-6-v2,gemini-2.5-flash,gemini,0.0,0.0,6666.863656044006,,10,
+20260426_233143_118be8ea,2026-04-26T23:31:43.781430,800,200,20,5,True,all-MiniLM-L6-v2,cross-encoder/ms-marco-MiniLM-L-6-v2,gemini-2.5-flash,gemini,0.0,0.0,6330.4492473602295,,10,
+20260426_233748_118be8ea,2026-04-26T23:37:48.632421,800,200,20,5,True,all-MiniLM-L6-v2,cross-encoder/ms-marco-MiniLM-L-6-v2,gemini-2.5-flash,gemini,0.28,0.6666666666666666,8826.938271522522,,10,
+20260426_234050_a242d0c0,2026-04-26T23:40:50.584105,800,200,20,5,False,all-MiniLM-L6-v2,cross-encoder/ms-marco-MiniLM-L-6-v2,gemini-2.5-flash,gemini,0.30000000000000004,0.7166666666666666,5278.345608711243,,10,Without reranker
+20260426_234719_71137cfb,2026-04-26T23:47:19.176469,400,50,20,5,True,all-MiniLM-L6-v2,cross-encoder/ms-marco-MiniLM-L-6-v2,gemini-2.5-flash,gemini,0.24,0.5833333333333333,11696.828150749207,,10,Small chunks (400)
+20260426_235055_18eeaf27,2026-04-26T23:50:55.403445,1200,200,20,5,True,all-MiniLM-L6-v2,cross-encoder/ms-marco-MiniLM-L-6-v2,gemini-2.5-flash,gemini,0.28,0.6666666666666666,8916.219758987427,,10,Large chunks (1200)

@@ -1,0 +1,83 @@
+[
+  {
+    "question": "What was the total revenue for the fiscal year?",
+    "expected_answer": "NVIDIA's total revenue for fiscal year 2024 was $60.9 billion, up 126% from fiscal year 2023.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_35",
+      "nvidia-10k-2024.pdf_49"
+    ]
+  },
+  {
+    "question": "What are the main business segments or product lines?",
+    "expected_answer": "NVIDIA has two reportable segments: Compute & Networking, and Graphics. Apple segments by geography: Americas, Europe, Greater China, Japan, and Rest of Asia Pacific.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_39",
+      "apple-10k-2023.pdf_24"
+    ]
+  },
+  {
+    "question": "What are the key risk factors mentioned in the document?",
+    "expected_answer": "Key risk factors include adverse economic conditions, international operations risks, cybersecurity threats, supply chain disruptions, and competitive pressures.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_7",
+      "nvidia-10k-2024.pdf_19",
+      "nvidia-10k-2024.pdf_13"
+    ]
+  },
+  {
+    "question": "What was the gross profit or gross margin?",
+    "expected_answer": "NVIDIA's gross margin was 72.7% in fiscal year 2024, up 15.8 points from 56.9% in fiscal year 2023. Gross profit was $44.3 billion.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_35",
+      "nvidia-10k-2024.pdf_49",
+      "apple-10k-2023.pdf_25"
+    ]
+  },
+  {
+    "question": "What is the company's growth strategy for the future?",
+    "expected_answer": "Growth strategy includes developing new products through R&D, launching software/cloud solutions, expanding into new markets, and strategic acquisitions.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_14",
+      "apple-10k-2023.pdf_10"
+    ]
+  },
+  {
+    "question": "What was the research and development expense?",
+    "expected_answer": "Research and development expenses are part of operating expenses, which totaled $11.3 billion for NVIDIA in fiscal year 2024.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_35",
+      "nvidia-10k-2024.pdf_40"
+    ]
+  },
+  {
+    "question": "What geographic regions does the company operate in?",
+    "expected_answer": "Apple operates in Americas, Europe, Greater China, Japan, and Rest of Asia Pacific. NVIDIA has significant international operations globally.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_24",
+      "nvidia-10k-2024.pdf_39"
+    ]
+  },
+  {
+    "question": "What was the year-over-year revenue growth percentage?",
+    "expected_answer": "NVIDIA's revenue grew 126% year-over-year from fiscal year 2023 to fiscal year 2024.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_35"
+    ]
+  },
+  {
+    "question": "Who are the main customers or customer segments?",
+    "expected_answer": "NVIDIA serves data centers, gaming, professional visualization, and automotive markets. Apple serves consumers, enterprises, and education sectors.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_39",
+      "apple-10k-2023.pdf_24"
+    ]
+  },
+  {
+    "question": "What was the operating income or operating margin?",
+    "expected_answer": "NVIDIA's operating income was $33.0 billion in fiscal year 2024, up 681% from $4.2 billion in fiscal year 2023.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_35",
+      "nvidia-10k-2024.pdf_49"
+    ]
+  }
+]

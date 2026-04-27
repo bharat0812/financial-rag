@@ -123,12 +123,18 @@ def create_chunks_with_elements(
     return chunks
 
 
-def chunk_documents(parsed_docs: List[Any]) -> List[Chunk]:
+def chunk_documents(
+    parsed_docs: List[Any],
+    chunk_size: int = CHUNK_SIZE,
+    chunk_overlap: int = CHUNK_OVERLAP,
+) -> List[Chunk]:
     """
     Process multiple parsed documents into chunks.
     
     Args:
         parsed_docs: List of ParsedDocument objects
+        chunk_size: Target chunk size in characters
+        chunk_overlap: Overlap between chunks
         
     Returns:
         List of all chunks from all documents
@@ -140,11 +146,15 @@ def chunk_documents(parsed_docs: List[Any]) -> List[Chunk]:
             chunks = create_chunks_with_elements(
                 elements=doc.elements,
                 source_filename=doc.filename,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap,
             )
         else:
             chunks = create_chunks(
                 text=doc.content,
                 source_filename=doc.filename,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap,
             )
         
         all_chunks.extend(chunks)

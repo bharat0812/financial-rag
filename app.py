@@ -19,9 +19,8 @@ st.set_page_config(
 )
 
 
-@st.cache_resource
 def load_pipeline(use_reranker: bool = True, use_mock: bool = False) -> RAGPipeline:
-    """Load the RAG pipeline (cached)."""
+    """Load the RAG pipeline."""
     return create_pipeline(use_reranker=use_reranker, use_mock_llm=use_mock)
 
 
@@ -61,7 +60,7 @@ def main():
         - Embeddings: all-MiniLM-L6-v2
         - Vector DB: ChromaDB
         - Reranker: Cross-Encoder
-        - LLM: Gemini 1.5 Flash
+        - LLM: Gemini 2.5 Flash
         
         **How it works:**
         1. Your question is embedded

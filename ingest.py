@@ -21,6 +21,8 @@ def main():
     parser.add_argument("--clear", action="store_true", help="Clear existing data before ingesting")
     parser.add_argument("--file", type=str, help="Ingest a specific PDF file")
     parser.add_argument("--dir", type=str, help="Directory containing PDFs (default: data/documents/)")
+    parser.add_argument("--chunk-size", type=int, default=None, help="Override chunk size (default from config)")
+    parser.add_argument("--chunk-overlap", type=int, default=None, help="Override chunk overlap (default from config)")
     args = parser.parse_args()
     
     documents_dir = Path(args.dir) if args.dir else DOCUMENTS_DIR
@@ -56,8 +58,13 @@ def main():
         print(f"\nFound {len(pdf_files)} PDF file(s) in {documents_dir}")
         parsed_docs = parse_directory(documents_dir)
     
+    from src.config import CHUNK_SIZE, CHUNK_OVERLAP
+    chunk_size = args.chunk_size or CHUNK_SIZE
+    chunk_overlap = args.chunk_overlap or CHUNK_OVERLAP
+    
     print(f"\nChunking {len(parsed_docs)} document(s)...")
-    chunks = chunk_documents(parsed_docs)
+    print(f"  Chunk size: {chunk_size}, Overlap: {chunk_overlap}")
+    chunks = chunk_documents(parsed_docs, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     print(f"Total chunks: {len(chunks)}")
     
     print(f"\nAdding chunks to vector store...")
