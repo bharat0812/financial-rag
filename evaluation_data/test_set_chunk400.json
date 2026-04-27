@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What was NVIDIA's total revenue for fiscal year 2024?",
+    "expected_answer": "NVIDIA's total revenue for fiscal year 2024 was $60.9 billion, up 126% from fiscal year 2023.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_607",
+      "nvidia-10k-2024.pdf_772",
+      "nvidia-10k-2024.pdf_1066"
+    ],
+    "company": "nvidia"
+  },
+  {
+    "question": "What was NVIDIA's gross margin percentage in fiscal year 2024?",
+    "expected_answer": "NVIDIA's gross margin was 72.7% in fiscal year 2024.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_568",
+      "nvidia-10k-2024.pdf_662",
+      "nvidia-10k-2024.pdf_961"
+    ],
+    "company": "nvidia"
+  },
+  {
+    "question": "What are NVIDIA's two main reportable business segments?",
+    "expected_answer": "NVIDIA has two reportable segments: Compute & Networking, and Graphics.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_814",
+      "nvidia-10k-2024.pdf_89",
+      "nvidia-10k-2024.pdf_815"
+    ],
+    "company": "nvidia"
+  },
+  {
+    "question": "What was NVIDIA's operating income for fiscal year 2024?",
+    "expected_answer": "NVIDIA's operating income was $33.0 billion in fiscal year 2024.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_1019",
+      "nvidia-10k-2024.pdf_772",
+      "nvidia-10k-2024.pdf_1056"
+    ],
+    "company": "nvidia"
+  },
+  {
+    "question": "What are the key risk factors mentioned in NVIDIA's 10-K?",
+    "expected_answer": "Key risk factors include demand volatility, supply chain, export controls, and competition.",
+    "relevant_chunk_ids": [
+      "nvidia-10k-2024.pdf_34",
+      "nvidia-10k-2024.pdf_335",
+      "nvidia-10k-2024.pdf_29"
+    ],
+    "company": "nvidia"
+  },
+  {
+    "question": "What are Apple's reportable geographic segments?",
+    "expected_answer": "Apple's segments are Americas, Europe, Greater China, Japan, and Rest of Asia Pacific.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_476",
+      "apple-10k-2023.pdf_340",
+      "apple-10k-2023.pdf_342"
+    ],
+    "company": "apple"
+  },
+  {
+    "question": "What was Apple's total gross margin for 2022?",
+    "expected_answer": "Apple's total gross margin for 2022 was $170.8 billion.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_348",
+      "apple-10k-2023.pdf_349",
+      "apple-10k-2023.pdf_612"
+    ],
+    "company": "apple"
+  },
+  {
+    "question": "What are the main risk factors disclosed in Apple's 10-K?",
+    "expected_answer": "Main risk factors include economic conditions, competition, and supply chain disruptions.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_90",
+      "apple-10k-2023.pdf_147",
+      "apple-10k-2023.pdf_109"
+    ],
+    "company": "apple"
+  },
+  {
+    "question": "What was Apple's Services revenue performance in 2022?",
+    "expected_answer": "Services net sales increased due to higher advertising, cloud services, and App Store revenue.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_334",
+      "apple-10k-2023.pdf_356",
+      "apple-10k-2023.pdf_488"
+    ],
+    "company": "apple"
+  },
+  {
+    "question": "What are Apple's main product categories?",
+    "expected_answer": "Apple's main products are iPhone, Mac, iPad, Wearables/Home/Accessories, and Services.",
+    "relevant_chunk_ids": [
+      "apple-10k-2023.pdf_43",
+      "apple-10k-2023.pdf_26",
+      "apple-10k-2023.pdf_28"
+    ],
+    "company": "apple"
+  }
+]
