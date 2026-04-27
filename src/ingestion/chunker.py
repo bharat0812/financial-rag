@@ -70,6 +70,9 @@ def create_chunks_with_elements(
     """
     Create chunks from parsed document elements, preserving page information.
     
+    Uses RecursiveCharacterTextSplitter on each element to ensure chunk_size
+    is actually respected, while tracking which pages each chunk came from.
+    
     Args:
         elements: List of parsed elements with page numbers
         source_filename: Name of the source file
@@ -79,8 +82,13 @@ def create_chunks_with_elements(
     Returns:
         List of Chunk objects with page metadata
     """
-    current_text = ""
-    current_pages = set()
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        length_function=len,
+        separators=["\n\n", "\n", ". ", " ", ""],
+    )
+    
     chunks = []
     chunk_index = 0
     
@@ -88,37 +96,35 @@ def create_chunks_with_elements(
         element_text = element.get("text", "")
         page = element.get("page", 1)
         
-        if len(current_text) + len(element_text) > chunk_size and current_text:
+        if not element_text.strip():
+            continue
+        
+        if len(element_text) <= chunk_size:
             chunk = Chunk(
-                text=current_text.strip(),
+                text=element_text.strip(),
                 metadata={
                     "source": source_filename,
                     "chunk_index": chunk_index,
-                    "pages": sorted(list(current_pages)),
+                    "pages": [page],
                 },
                 chunk_id=f"{source_filename}_{chunk_index}",
             )
             chunks.append(chunk)
             chunk_index += 1
-            
-            overlap_start = max(0, len(current_text) - chunk_overlap)
-            current_text = current_text[overlap_start:]
-            current_pages = {page}
-        
-        current_text += element_text + "\n\n"
-        current_pages.add(page)
-    
-    if current_text.strip():
-        chunk = Chunk(
-            text=current_text.strip(),
-            metadata={
-                "source": source_filename,
-                "chunk_index": chunk_index,
-                "pages": sorted(list(current_pages)),
-            },
-            chunk_id=f"{source_filename}_{chunk_index}",
-        )
-        chunks.append(chunk)
+        else:
+            sub_chunks = splitter.split_text(element_text)
+            for sub_chunk in sub_chunks:
+                chunk = Chunk(
+                    text=sub_chunk.strip(),
+                    metadata={
+                        "source": source_filename,
+                        "chunk_index": chunk_index,
+                        "pages": [page],
+                    },
+                    chunk_id=f"{source_filename}_{chunk_index}",
+                )
+                chunks.append(chunk)
+                chunk_index += 1
     
     return chunks
 
