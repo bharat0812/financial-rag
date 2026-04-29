@@ -1,10 +1,23 @@
 """
 Text Chunking module for splitting documents into smaller pieces.
 Uses recursive character splitting with configurable overlap.
+
+WHY CHUNKING MATTERS:
+- LLMs have limited context windows (can't fit a whole 10-K filing)
+- Embeddings work better on focused topics, not entire documents
+- Smaller chunks → more precise retrieval
+- Trade-off: too small = lose context, too large = retrieve irrelevant info
+
+DESIGN DECISIONS:
+- 800 char chunks with 200 char overlap (default)
+- Overlap prevents losing context at chunk boundaries
+- Page metadata is preserved for citation in answers
 """
 from typing import List, Dict, Any
 from dataclasses import dataclass
 
+# RecursiveCharacterTextSplitter tries natural boundaries first (paragraphs,
+# then sentences, then words) before falling back to character splits.
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from ..config import CHUNK_SIZE, CHUNK_OVERLAP
@@ -12,10 +25,15 @@ from ..config import CHUNK_SIZE, CHUNK_OVERLAP
 
 @dataclass
 class Chunk:
-    """Represents a text chunk with metadata."""
-    text: str
-    metadata: Dict[str, Any]
-    chunk_id: str
+    """
+    Represents a text chunk with metadata.
+    
+    Using @dataclass auto-generates __init__, __repr__, __eq__ methods.
+    Cleaner than writing a regular class for simple data containers.
+    """
+    text: str                  # The actual chunk content
+    metadata: Dict[str, Any]   # Source file, page numbers, chunk_index
+    chunk_id: str              # Unique ID like "nvidia-10k.pdf_42"
 
 
 def create_chunks(
@@ -25,17 +43,11 @@ def create_chunks(
     chunk_overlap: int = CHUNK_OVERLAP,
 ) -> List[Chunk]:
     """
-    Split text into overlapping chunks.
-    
-    Args:
-        text: The full text to split
-        source_filename: Name of the source file for metadata
-        chunk_size: Target size of each chunk in characters
-        chunk_overlap: Number of overlapping characters between chunks
-        
-    Returns:
-        List of Chunk objects with metadata
+    Split plain text into overlapping chunks.
+    Used as fallback when parser doesn't provide page-level elements.
     """
+    # Separator hierarchy: try paragraph breaks first, fall back to characters.
+    # This keeps semantic units together when possible.
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
@@ -70,17 +82,12 @@ def create_chunks_with_elements(
     """
     Create chunks from parsed document elements, preserving page information.
     
-    Uses RecursiveCharacterTextSplitter on each element to ensure chunk_size
-    is actually respected, while tracking which pages each chunk came from.
+    KEY FIX: Originally treated each element (page) as one chunk regardless of
+    size, making chunk_size parameter useless. Now properly splits large
+    elements while keeping page-level metadata for citations.
     
-    Args:
-        elements: List of parsed elements with page numbers
-        source_filename: Name of the source file
-        chunk_size: Target chunk size
-        chunk_overlap: Overlap between chunks
-        
-    Returns:
-        List of Chunk objects with page metadata
+    This matters for evaluation - we can compare different chunk sizes
+    and see real differences in retrieval quality.
     """
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
@@ -96,22 +103,26 @@ def create_chunks_with_elements(
         element_text = element.get("text", "")
         page = element.get("page", 1)
         
+        # Skip empty/whitespace-only elements (common in PDFs with weird formatting)
         if not element_text.strip():
             continue
         
+        # Small element fits in one chunk - preserve as-is
         if len(element_text) <= chunk_size:
             chunk = Chunk(
                 text=element_text.strip(),
                 metadata={
                     "source": source_filename,
                     "chunk_index": chunk_index,
-                    "pages": [page],
+                    "pages": [page],  # List allows future multi-page chunks
                 },
                 chunk_id=f"{source_filename}_{chunk_index}",
             )
             chunks.append(chunk)
             chunk_index += 1
         else:
+            # Large element (typically a full page) needs splitting.
+            # Each sub-chunk inherits the parent page number.
             sub_chunks = splitter.split_text(element_text)
             for sub_chunk in sub_chunks:
                 chunk = Chunk(
@@ -137,17 +148,13 @@ def chunk_documents(
     """
     Process multiple parsed documents into chunks.
     
-    Args:
-        parsed_docs: List of ParsedDocument objects
-        chunk_size: Target chunk size in characters
-        chunk_overlap: Overlap between chunks
-        
-    Returns:
-        List of all chunks from all documents
+    Routes to the appropriate chunking function based on whether the parser
+    extracted structured elements (pages) or just plain text.
     """
     all_chunks = []
     
     for doc in parsed_docs:
+        # Use page-aware chunking when available - preserves citation metadata
         if doc.elements:
             chunks = create_chunks_with_elements(
                 elements=doc.elements,
@@ -156,6 +163,7 @@ def chunk_documents(
                 chunk_overlap=chunk_overlap,
             )
         else:
+            # Fallback path: parser only gave us raw text (no structure)
             chunks = create_chunks(
                 text=doc.content,
                 source_filename=doc.filename,
